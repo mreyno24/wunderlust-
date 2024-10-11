@@ -1,0 +1,692 @@
+/*Miki Reynolds*/
+
+@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+:root {
+    font-size: 16px;
+    --black: #000000;
+    --white: #FFFFFF;
+    --light-gray: #EAEAEA;
+    --dark-gray: #222222;
+    --blue: #499BD2;
+    --purple: #9B26B0;
+    --teal: #55BCD5;
+    --yellow: #F6D64A;
+}
+
+#skip {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+#skip:focus {
+	position: static;
+	width: auto;
+	height: auto;
+}
+
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    line-height: 1.3;
+}
+
+h1, h2, h3 {
+    font-family: "Molle";
+    font-weight: 400;
+	margin: auto;
+	padding-left: 1rem;
+}
+
+h4, p, q, small, nav, button, form {
+    font-family: "Montserrat";
+    font-weight: 400;
+	padding-left: 1rem;
+}
+
+h1 {
+	text-align: left;
+	font-size: 3.5rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+}
+
+header {
+	display: grid;
+	grid-template-columns: repeat(2, 50vw);
+	grid-template-rows: auto auto auto;
+	justify-items: stretch;
+	align-items: center;
+	background-image: linear-gradient(var(--teal), var(--white));
+}
+
+header h1 {
+	grid-column: 1;
+	grid-row-start: 2;
+}
+
+header>p {
+	grid-row-start: 3;
+	grid-column: 1/-1;
+	color: var(--dark-gray);
+}
+
+header~img {
+	width: fit-content;
+	grid-column: 1/2;
+}
+
+#menu-toggle {
+    background-color: var(--yellow);
+	color: var(--black);
+	text-align: center;
+	justify-self: right;
+    width: 50vw;
+}
+
+#menu-toggle input {
+	display: none;
+}
+
+#menu-toggle label {
+	cursor: pointer;
+	display: block;
+	color: var(--black);
+	font-weight: bold;
+	padding: 1rem;
+}
+
+#menu-toggle ul {
+    background-color: var(--dark-gray);
+	max-height: 0;
+	width: 100vw;
+	height: 100%;
+    text-align: center;
+	position: absolute;
+	left: 0;
+	overflow: hidden;
+	
+}
+
+#menu-toggle ul li {
+    background-color: var(--teal);
+	max-width: 100%;
+	padding: 2rem;
+	border-bottom: 1px solid var(--black);
+}
+
+#menu-toggle ul li a {
+	color: var(--black);
+	text-align: center;
+    text-decoration: none;
+}
+
+#menu-toggle input:checked~ label {
+	position: absolute;
+	top: 1rem;
+	left: 0;
+	width: 100vw;
+	background-color: var(--black);
+	color: var(--white);
+}
+
+#menu-toggle input:checked~ul {
+	max-height: 100%;
+	max-width: 100vw;
+	background-color: var(--white);
+}
+
+#plan {
+	background-color: var(--yellow);
+	font-size: 2rem;
+	padding-bottom: 1rem;
+}
+
+#plan div {
+	display: grid;
+	grid-template-columns: 10vw 80vw 10vw;
+	grid-template-rows: fit-content(90%);
+	grid-column: 1/-1;
+	grid-gap: 0.5em;
+	justify-content: center;
+
+}
+
+#plan div section {
+	grid-column: 2/3;
+	background-color: var(--teal);
+	border: 2px solid var(--white);
+	border-radius: 10px;
+	justify-items: center;
+	text-align: center;
+}
+
+#plan img {
+	padding: 10px;
+	max-width: fit-content;
+}
+
+#plan h4 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 10px;
+	margin: 10px auto;
+}
+
+#testimonials {
+	display: grid;
+    font-size: 2rem;
+	grid-template-columns: 10vw 80vw 10vw;
+	grid-column: 1/-1;
+	justify-content: center;
+	padding-bottom: 1rem;
+	text-align: center;
+}
+
+#testimonials h3 {
+	margin-left: 1.5rem;
+}
+
+#testimonials h4 {
+	grid-column: 1/-1;
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin: 0 auto
+}
+
+#testimonials div {
+	display: grid;
+	grid-template-columns: 10vw 80vw 10vw;
+	grid-column: 1/-1;
+	grid-gap: 0.5em;
+	justify-content: center;
+
+}
+
+#testimonials div section {
+	display: grid;
+	grid-column: 2/3;
+	justify-content: center;
+	font-size: small;
+}
+
+#testimonials img {
+	justify-self: center;
+	width: fit-content;
+}
+
+#about {
+    background-color: var(--blue);
+	display: grid;
+    text-align: center;
+	grid-template-columns: 10vw 80vw 10vw;
+	font-size: 2rem;
+	padding-bottom: 1rem;
+}
+
+#about p {
+	color: var(--dark-gray);
+}
+
+#about h3 {
+	margin-left: 1.5rem;
+	text-align: left;
+	grid-column: 1/-1;
+}
+
+#about h4 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#about div {
+	display: inline-grid;
+	grid-template-columns: 50vw auto;
+	grid-template-rows: repeat(2, minmax(100px, 2fr));
+	grid-column: 1/-1;
+	gap: 1rem;
+	justify-content: center
+}
+
+#about section {
+	/* padding: 20px; */
+	display: grid;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	font-size: 1rem;
+	width: 80%;
+}
+
+#about img {
+	height: 5rem;
+	justify-content: center;
+}
+
+#contact {
+	display: grid;
+	grid-template-columns: 10vw 80vw 10vw;
+	justify-items: center
+}
+
+#contact h3 {
+	font-size: 2rem;
+	grid-column: 1/-1;
+}
+
+#contact span {
+	font-family: "Montserrat";
+	font-size: 1rem;
+}
+
+#contact form {
+	grid-column: 2/3;
+	padding: 0;
+}
+
+#contact label {
+	display: block;
+	font-weight: bold;
+	align-items: center;
+}
+
+#contact form input,
+select {
+	display: block;
+	padding: 1em;
+	margin-bottom: 1em;
+	border: 2px solid var(--purple);
+	width: 100%;
+	box-sizing: content-box;
+}
+
+[class="required"] {
+	color: var(--purple);
+}
+
+[class="form-required"] {
+	font-style: italic;
+}
+
+legend {
+	font-weight: bold;
+}
+
+#contact form fieldset input {
+	width: 3rem;
+	height: 3rem;
+	margin-right: 1em;
+	accent-color: var(--purple);
+}
+
+#contact form fieldset label {
+	display: flex;
+	font-weight: normal;
+	font-style: normal;
+}
+
+select~option {
+	color: var(--dark-gray);
+}
+
+#mySubmit {
+	background-color: var(--purple);
+	color: var(--white);
+	display: block;
+	width: 50vw;
+}
+
+footer {
+	padding: 1rem;
+	background-color: var(--light-gray);
+	text-align: center;
+}
+
+footer a, footer p {
+    color: var(--black);
+    font-family: "Montserrat";
+    text-decoration: none;
+    display: block;
+	padding: .5rem
+}
+
+@media only screen and (min-width: 768px) {
+	body {
+		margin: 0;
+	}
+	h3 {
+		padding: 0;
+		margin: 0 auto;
+	}
+	header {
+		display: grid;
+		grid-template-columns: 10vw repeat(3, 1fr) 10vw;
+		top: 0;
+		padding-bottom: 5rem;
+		background-image: linear-gradient(var(--teal), var(--white))
+	}
+    header a {
+		grid-column: 1 / 3;
+		grid-row: 1 /5;
+		align-self: center;
+	}
+	header h1, header p {
+		grid-column: 3/5;
+		text-align: left;
+		justify-content: left;
+		margin: 0;
+	}
+	nav {
+		grid-column: 2 / 5;
+		grid-template-columns: 10vw 80vw 10vw;
+
+	}
+	#menu-toggle label {
+		display: none;
+	}
+	#menu-toggle ul {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
+		grid-column: 2/3;
+		background-color: transparent;
+		height: auto;
+		max-width: 80vw;
+		max-height: none;
+		left: auto;
+	}
+	#menu-toggle ul li {
+		font-weight: bold;
+		background-color: var(--white);
+		padding: 1rem;
+		border: none;
+		z-index: 5;
+	}
+	#menu-toggle ul li:hover {
+		background-color: var(--yellow);
+	}
+	#intro {
+		padding: 1rem 10vw;
+	}
+	#intro h2,
+	p {
+		padding: 0;
+	}
+	#intro #img-grid {
+		display: grid;
+		grid-template-areas: "a b"
+			"c c";
+		gap: 15px;
+	}
+	#intro picture {
+		grid-area: c;
+	}
+	#plan {
+		display: grid;
+		grid-template-columns: auto 40vw 40vw auto;
+		padding: 1rem 10vw;
+	}
+	#plan h3 {
+		padding: 0;
+		margin: 0;
+		grid-column: 1/-1;
+	}
+	#plan div {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column: 2/4;
+	}
+	#plan div section {
+		grid-column: auto;
+		max-width: 100%;
+	}
+	#testimonials {
+		grid-template-columns: 1fr 1fr;
+		padding: 1rem 10vw;
+	}
+    #testimonials div {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+    #testimonials div section {
+		grid-area: auto;
+	}
+	#testimonials h3 {
+		padding: 0;
+		grid-column: 1/-1;
+	}
+	#testimonials img {
+		max-width: fit-content;
+	}
+	#about {
+		padding: 1rem 10vw;
+	}
+	#about div {
+		grid-template-columns: repeat(4, 15vw);
+		grid-template-rows: auto;
+		width: 80vw;
+		justify-content: space-between;
+	}
+	#contact form {
+		width: 100%;
+	}
+	#contact form fieldset {
+		display: flex;
+	}
+	#contact Form fieldset label {
+		margin: auto;
+	}
+	#contact form [name="mySubmit"] {
+		width: 30vw;
+		margin-left: 62.5%;
+	}
+	footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+@media only screen and (min-width: 1024px) {
+	header {
+		grid-template-columns: 20vw 40vw 40vw;
+		justify-items: start;
+	}
+	header a {
+		grid-column: 1/2;
+		margin: auto;
+	}
+	header h1, header p {
+		grid-column: 2/4;
+	}
+	header nav {
+		grid-column: 3/-1;
+		grid-row: 1/-1;
+		display: block;
+	}
+	#menu-toggle ul {
+		top: 0;
+		right: 0;
+		width: max-content;
+	}
+	#menu-toggle ul li {
+		padding: .5rem 1rem;
+
+	}
+	h1{
+		padding-top: 1rem;
+		padding-left: 0;
+	}
+	h2 {
+		margin: 0;
+	}
+	#intro {
+		display: grid;
+		grid-template-areas:
+			"a c c"
+			"b c c"
+			"b c c";
+		gap: 1rem;
+	}
+	#intro #img-grid {
+		grid-column: 2/-1;
+		grid-row: 1/-1;
+	}
+	#plan {
+		padding: 3rem 10vw;
+	}
+	#plan div {
+		display: flex;
+		justify-content: space-between;
+	}
+	#plan div section {
+		display: inline-grid;
+		width: 25%;
+	}
+	#plan img {
+		width: 60%;
+	}
+	#testimonials {
+		padding: 3rem 10vw;
+	}
+	#testimonials div {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	#about {
+		padding: 3rem 10vw;
+	}
+	#about div {
+		justify-content: center;
+		align-items: center;
+	}
+	#contact {
+		padding-top: 3rem;
+		grid-template-areas:
+			"a a a"
+			"b c d"
+			"b c d"
+			"b c e";
+	}
+	#contact form {
+		display: grid;
+		grid-template-columns: repeat(3, 33.3%);
+		grid-template-areas:
+			"a a a"
+			"b c d"
+			"b c d"
+			"b c e";
+		gap: 1rem 1rem;
+	}
+	#contact h3 {
+		grid-area: a;
+	}
+	#contact label {
+		display: inline-block;
+		width: 100%;
+	}
+	#contact form input {
+		display: inline-block;
+		width: 90%;
+	}
+    #contact form fieldset label {
+		padding-right: .5rem;
+	}
+	#contact form fieldset input {
+		margin: 0 .5rem .5rem;
+		width: 2.2rem;
+	}
+	#names {
+		display: block;
+		grid-area: b;
+		width: 100%;
+	}
+	#nums {
+		grid-area: c;
+	}
+	#selects {
+		grid-area: d;
+		width: 90%;
+	}
+	#contact form [name="mySubmit"] {
+		margin-left: 50%;
+		width: 50%;
+	}
+	#mySubmit {
+		grid-area: e;
+	}
+	#contact .radio-label {
+		font-size: .8rem;
+	}
+	footer {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+	footer p {
+		grid-column: 1/3;
+	}
+}
